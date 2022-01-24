@@ -1,0 +1,75 @@
+// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
+// “Hello, World!” Example: https://learn-code.wix.com/en/article/1-hello-world
+
+let bCalculated = false;
+let bCADnone = false;
+let bCADwall = false;
+let bCADdoor = false;
+let bCADwindow = false;
+
+$w.onReady(function () {
+
+});
+
+
+export function showCAD_click(event) {
+	$w("#CAD1").show();
+	bCalculated = true;
+	bCADnone = true;
+}
+
+export function wallBox_mouseIn(event) {
+	if(bCalculated == true && bCADnone == true){
+		bCADnone = false;
+		bCADwall = true;
+		$w("#CAD1").hide();
+		$w("#CADwall").show();
+		
+	}
+}
+
+export function wallBox_mouseOut(event) {
+	if(bCalculated == true && bCADwall == true){
+		bCADnone = true;
+		bCADwall = false;
+		$w("#CADwall").hide();
+		$w("#CAD1").show();
+	}
+}
+
+export function doorBox_mouseIn(event) {
+	if(bCalculated == true && bCADnone == true){
+		bCADnone = false;
+		bCADdoor = true;
+		$w("#CAD1").hide();
+		$w("#CADdoor").show();
+	}
+}
+
+export function doorBox_mouseOut(event) {
+	if(bCalculated == true && bCADdoor == true){
+		bCADnone = true;
+		bCADdoor = false;
+		$w("#CADdoor").hide();
+		$w("#CAD1").show();
+	}
+}
+
+
+export function windowBox_mouseIn(event) {
+	if(bCalculated == true && bCADnone == true){
+		bCADnone = false;
+		bCADwindow = true;
+		$w("#CAD1").hide();
+		$w("#CADwindow").show();
+	}
+}
+
+export function windowBox_mouseOut(event) {
+	if(bCalculated == true && bCADwindow == true){
+		bCADnone = true;
+		bCADwindow = false;
+		$w("#CADwindow").hide();
+		$w("#CAD1").show();
+	}
+}
